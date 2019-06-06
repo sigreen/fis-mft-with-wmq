@@ -24,12 +24,12 @@
         </route>
         <route id="cbr-files-outbound">
             <from id="_from1" uri="file:{{httpUploadService.nfsDir}}/in?antExclude=*/.inprogress&amp;moveFailed=.error&amp;move=.done"/>
-			<setHeader headerName="incomingFileExtension">
-				<simple>${file:ext}</simple>
-			</setHeader>
-			 <setHeader headerName="incomingFileType">
-            	<simple>${in.header.incomingFileExtension.substring(0,3)}</simple>
-        	</setHeader>
+            <setHeader headerName="incomingFileExtension" id="_setHeader1">
+                <simple>${file:ext}</simple>
+            </setHeader>
+            <setHeader headerName="incomingFileType" id="_setHeader2">
+                <simple>${in.header.incomingFileExtension.substring(0,3)}</simple>
+            </setHeader>
             <log id="_log1" message="File type: ${header.incomingFileType}"/>
             <choice id="_choice1">
                 <when id="_when1">

@@ -1,7 +1,7 @@
 HTTP Upload Service
 ========================================================
 
-The Camel routes stands up an HTTP Server that accepts large files and streams them to a file directory
+The Camel routes stands up an HTTP Server that accepts large files and streams them to a file directory.  Filename-based routing occurs, whereby large files are sent to `/mnt/mft/out_sftp` and XML files are sent to `/mnt/mft/out_wmq`.
 
 
 Setup
