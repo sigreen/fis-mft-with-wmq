@@ -1,0 +1,77 @@
+{
+  "schemaVersion" : "v1",
+  "name" : "File Connector",
+  "description" : "File Connector Extension Connector for Syndesis",
+  "extensionId" : "com.mycompany.fuse.online.extensions:syndesis-connector-file2",
+  "version" : "1.0.0",
+  "actions" : [ {
+    "id" : "io.syndesis:read-file-from-action",
+    "name" : "Read File",
+    "description" : "Read a file from the local filesystem",
+    "descriptor" : {
+      "componentScheme" : "file",
+      "inputDataShape" : {
+        "kind" : "none"
+      },
+      "outputDataShape" : {
+        "kind" : "none"
+      },
+      "propertyDefinitionSteps" : [ {
+        "description" : "Directory Name",
+        "name" : "directoryName",
+        "properties" : {
+          "directoryName" : {
+            "componentProperty" : false,
+            "deprecated" : false,
+            "description" : "The file directory name",
+            "displayName" : "Directory Name",
+            "javaType" : "String",
+            "kind" : "parameter",
+            "required" : false,
+            "secret" : false,
+            "type" : "string"
+          }
+        }
+      } ]
+    },
+    "actionType" : "connector",
+    "pattern" : "From"
+  }, {
+    "id" : "io.syndesis:write-file-to-action",
+    "name" : "Write File",
+    "description" : "Write a file to the local filesystem",
+    "descriptor" : {
+      "componentScheme" : "file",
+      "inputDataShape" : {
+        "kind" : "none"
+      },
+      "outputDataShape" : {
+        "kind" : "none"
+      },
+      "propertyDefinitionSteps" : [ {
+        "description" : "Directory Name",
+        "name" : "directoryName",
+        "properties" : {
+          "directoryName" : {
+            "componentProperty" : false,
+            "deprecated" : false,
+            "description" : "The file directory name",
+            "displayName" : "Directory Name",
+            "javaType" : "String",
+            "kind" : "parameter",
+            "required" : false,
+            "secret" : false,
+            "type" : "string"
+          }
+        }
+      } ]
+    },
+    "actionType" : "connector",
+    "pattern" : "To"
+  } ],
+  "dependencies" : [ {
+    "type" : "MAVEN",
+    "id" : "io.syndesis.extension:extension-api:jar:1.3.12.fuse-000001-redhat-2"
+  } ],
+  "extensionType" : "Connectors"
+}
