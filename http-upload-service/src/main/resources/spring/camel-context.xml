@@ -24,15 +24,21 @@
         </route>
         <route id="cbr-files-outbound">
             <from id="_from1" uri="file:{{httpUploadService.nfsDir}}/in?antExclude=*/.inprogress&amp;moveFailed=.error&amp;move=.done"/>
-            <log id="_log1" message="File size: ${file:length}"/>
+			<setHeader headerName="incomingFileExtension">
+				<simple>${file:ext}</simple>
+			</setHeader>
+			 <setHeader headerName="incomingFileType">
+            	<simple>${in.header.incomingFileExtension.substring(0,3)}</simple>
+        	</setHeader>
+            <log id="_log1" message="File type: ${header.incomingFileType}"/>
             <choice id="_choice1">
                 <when id="_when1">
-                    <simple>${file:length} &lt; 100000000</simple>
-                    <!-- File smaller than 100MB, so send S3 -->
-                    <to id="writeToFileS3" uri="file:{{httpUploadService.nfsDir}}/out_s3"/>
+                    <simple>${header.incomingFileType} == 'xml'</simple>
+                    <!-- File contains XML records, so send to WMQ -->
+                    <to id="writeToFileS3" uri="file:{{httpUploadService.nfsDir}}/out_wmq"/>
                 </when>
                 <otherwise id="_otherwise1">
-                    <!-- File larger than 100MB, so send SFTP -->
+                    <!-- File is not XML, so send to SFTP -->
                     <to id="writeToFileSFTP" uri="file:{{httpUploadService.nfsDir}}/out_sftp"/>
                 </otherwise>
             </choice>
