@@ -103,6 +103,6 @@
 	<description>Managed File Transfer with WMQ</description>
 	<modules>
 		<module>http-upload-service</module>
-		<module>ftp-download-service</module>
+		<module>wmq-upload-service</module>
 	</modules>
 </project>

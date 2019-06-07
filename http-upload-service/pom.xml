@@ -11,7 +11,7 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>http-upload-service-wmq</artifactId>
+	<artifactId>http-upload-service</artifactId>
 
 	<name>Fuse :: Boosters :: Springboot :: Circuit Braker :: HTTP Upload Service</name>
 
