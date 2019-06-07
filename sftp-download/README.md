@@ -25,7 +25,7 @@ This flow polls a remote SFTP server and downloads files to the centralized `/mn
   <img src="images/sftp-download.png"/>
 </p>
 
-5. For the *Write File* step, set the *Header name* to `Directory Name` `/mnt/mft/in?fileName=${header.CamelFileNameConsumed}-${date:now:yyyyMMddHHmmssSSS}.ready&tempFileName=.inprogress`.
+5. For the *Write File* step, set the *Directory Name* `/mnt/mft/in?fileName=${header.CamelFileNameConsumed}-${date:now:yyyyMMddHHmmssSSS}.ready&tempFileName=.inprogress`.
 
 6. Publish the flow and navigate to the `Shared Fuse` project in the OCP Web UI.
 
