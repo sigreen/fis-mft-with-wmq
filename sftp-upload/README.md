@@ -13,7 +13,7 @@ This flow consumes files from `/mnt/mft/out_sftp` directory, then pushes the fil
 
 2. If you haven't already done so, create a Connector called `File Connector` using the imported step extension.
 
-3. Create a new Integration and add the following steps, as depicted in the image above.  For the *Read File* configuration, be sure to use the following configuration
+3. Create a new Integration and add the following steps, as depicted in the image above.  For the *Read File* configuration, be sure to use the following configuration.  You can use the following text for *Directory Name*: `/mnt/mft/out_sftp?antExclude=*/.inprogress&moveFailed=.error&move=.done`.
 
 <p align="center">
   <img src="images/sftp-upload-read-file.png"/>
