@@ -9,7 +9,7 @@ This flow includes the following services
 1. [Flow One: HTTP Upload Endpoint](./http-upload-service)
 2. [Flow Two: SFTP Download Endpoint](./sftp-download)
 3. [Flow Three: File Split WMQ Producer](./wmq-upload-service)
-4. [Flow Four: SFTP Push](./sftp-push)
+4. [Flow Four: SFTP Push](./sftp-upload)
 
 Prerequisites
 ==============================
